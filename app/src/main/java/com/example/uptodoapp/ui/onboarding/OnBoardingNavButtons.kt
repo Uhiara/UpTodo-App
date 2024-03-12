@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.uptodoapp.ui.common.CommonButton
 import com.example.uptodoapp.ui.common.CommonTextButton
+import com.example.uptodoapp.ui.navgraph.Routes
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.PagerState
 import kotlinx.coroutines.launch
@@ -67,6 +68,8 @@ fun OnBoardingNavButtons(
                     }
                 }
                 else {
+                    navController.popBackStack()
+                    navController.navigate(Routes.WELCOME_SCREEN)
                 }
             }
         )
