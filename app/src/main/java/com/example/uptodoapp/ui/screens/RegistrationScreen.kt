@@ -1,16 +1,14 @@
 package com.example.uptodoapp.ui.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -37,8 +35,9 @@ import com.example.uptodoapp.ui.common.CommonTextField
 import com.example.uptodoapp.ui.common.SocialMediaButton
 import com.example.uptodoapp.ui.navgraph.Routes
 
+
 @Composable
-fun LoginScreen(
+fun RegistrationScreen(
     navController: NavHostController,
 ) {
     Surface(
@@ -55,7 +54,7 @@ fun LoginScreen(
             TextButton(
                 onClick = {
                     navController.popBackStack()
-                    navController.navigate(Routes.WELCOME_SCREEN)
+                    navController.navigate(Routes.LOGIN_SCREEN)
                 }
             ) {
                 Image(
@@ -67,21 +66,22 @@ fun LoginScreen(
             Spacer(modifier = Modifier.weight(0.4f))
 
             CommonText(
-                modifier = Modifier.padding(horizontal = 20.dp),
-                textValue = "Login",
+                modifier = Modifier
+                    .padding(horizontal = 20.dp),
+                textValue = "Register",
                 textSize = 32.sp,
                 lineHeight = 38.sp,
                 fontWeight = FontWeight(700),
                 colorValue = colorResource(id = R.color.text_medium),
                 fontFamily = FontFamily(Font(R.font.roboto_bold)),
                 textAlign = TextAlign.Start,
-
-                )
+            )
 
             Spacer(modifier = Modifier.weight(0.6f))
 
             CommonText(
-                modifier = Modifier.padding(horizontal = 20.dp),
+                modifier = Modifier
+                    .padding(horizontal = 20.dp),
                 textValue = "Username",
                 textSize = 16.sp,
                 lineHeight = 24.sp,
@@ -92,14 +92,16 @@ fun LoginScreen(
             )
 
             CommonTextField(
-                modifier = Modifier.padding(horizontal = 20.dp),
+                modifier = Modifier
+                    .padding(horizontal = 20.dp),
                 labelValue = "Enter your username"
             )
 
             Spacer(modifier = Modifier.weight(0.3f))
 
             CommonText(
-                modifier = Modifier.padding(horizontal = 20.dp),
+                modifier = Modifier
+                    .padding(horizontal = 20.dp),
                 textValue = "Password",
                 textSize = 16.sp,
                 lineHeight = 24.sp,
@@ -110,58 +112,73 @@ fun LoginScreen(
             )
 
             CommonPasswordTextField(
-                modifier = Modifier.padding(horizontal = 20.dp),
+                modifier = Modifier
+                    .padding(horizontal = 20.dp),
                 labelValue = "Password",
+            )
+
+            Spacer(modifier = Modifier.weight(0.3f))
+
+            CommonPasswordTextField(
+                modifier = Modifier
+                    .padding(horizontal = 20.dp),
+                labelValue = "Confirm Password",
             )
 
             Spacer(modifier = Modifier.weight(0.65f))
 
-            CommonButton(modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp),
-                text = "Login",
+            CommonButton(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
+                text = "Register",
                 onClick = {
-                    //TODO: Navigate to Index(Home) Screen
+                    //TODO: Navigate to
                 }
             )
 
             Spacer(modifier = Modifier.weight(0.35f))
 
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Box(
-                    modifier = Modifier
-                        .padding(start = 20.dp)
-                        .weight(0.4f)
-                        .size(1.dp)
-                        .border(1.dp, color = colorResource(id = R.color.text_medium)),
+
+                Divider(
+                    color = colorResource(id = R.color.text_medium),
+                    thickness = 1.dp,
+                    modifier = Modifier.weight(0.5f)
                 )
 
-                Text(text = "or")
+                Text(text = "or", modifier = Modifier.padding(start = 1.dp, end = 1.dp))
 
-                Box(
-                    modifier = Modifier
-                        .padding(end = 20.dp)
-                        .weight(0.4f)
-                        .size(1.dp)
-                        .border(1.dp, color = colorResource(id = R.color.text_medium)),
+                Divider(
+                    color = colorResource(id = R.color.text_medium),
+                    thickness = 1.dp,
+                    modifier = Modifier.weight(0.5f)
                 )
             }
 
             Spacer(modifier = Modifier.weight(0.35f))
 
-            SocialMediaButton(icon = R.drawable.google_logo, text = "Login with Google", onClick = {
-                // TODO:
-            })
+            SocialMediaButton(
+                icon = R.drawable.google_logo,
+                text = "Register with Google",
+                onClick = {
+                })
 
             Spacer(modifier = Modifier.weight(0.2f))
 
-            SocialMediaButton(icon = R.drawable.apple, text = "Login with Apple", onClick = {
-                // TODO:
-            })
+            SocialMediaButton(
+                icon = R.drawable.apple,
+                text = "Register with Apple",
+                onClick = {
+                    // TODO:
+                }
+            )
 
             Spacer(modifier = Modifier.weight(0.5f))
 
@@ -172,16 +189,17 @@ fun LoginScreen(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = "Don't have account?",
+                    text = "Already have an account?",
                     color = colorResource(id = R.color.text_medium),
                     fontSize = 14.sp,
                 )
 
                 TextButton(onClick = {
-                    // TODO:
+                    navController.popBackStack()
+                    navController.navigate(Routes.LOGIN_SCREEN)
                 }) {
                     Text(
-                        text = "Register",
+                        text = "Login",
                         color = MaterialTheme.colorScheme.primary,
                         fontSize = 14.sp,
                     )
@@ -195,6 +213,6 @@ fun LoginScreen(
 
 @Preview
 @Composable
-fun LoginScreenPreview() {
-    LoginScreen(rememberNavController())
+fun RegistrationScreenPreview() {
+    RegistrationScreen(rememberNavController())
 }
