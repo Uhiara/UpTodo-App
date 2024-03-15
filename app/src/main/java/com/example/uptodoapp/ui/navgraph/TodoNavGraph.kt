@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.uptodoapp.ui.onboarding.OnBoardingScreen
 import com.example.uptodoapp.ui.onboarding.SplashScreen
+import com.example.uptodoapp.ui.screens.LoginScreen
 import com.example.uptodoapp.ui.screens.WelcomeScreen
 
 
@@ -27,5 +28,10 @@ fun TodoNavGraph() {
         composable(Routes.WELCOME_SCREEN) {
             WelcomeScreen(navController)
         }
+
+        composable(Routes.LOGIN_SCREEN) {
+            LoginScreen(navController)
+        }
+
     }
 }

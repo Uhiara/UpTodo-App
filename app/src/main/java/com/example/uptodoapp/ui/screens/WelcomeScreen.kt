@@ -95,6 +95,8 @@ fun WelcomeScreen(
                     modifier = modifier.fillMaxWidth(),
                     text = "LOGIN",
                     onClick = {
+                        navController.popBackStack()
+                        navController.navigate(Routes.LOGIN_SCREEN)
                     }
                 )
 
