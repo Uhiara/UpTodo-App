@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
@@ -28,6 +27,7 @@ import com.example.uptodoapp.R
 import com.example.uptodoapp.ui.common.CommonImage
 import com.example.uptodoapp.ui.common.CommonText
 import com.example.uptodoapp.ui.common.CommonTextButton
+import com.example.uptodoapp.ui.navgraph.Routes
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -60,7 +60,6 @@ fun OnBoardingScreen(
     val pagerState = rememberPagerState(
         pageCount = images.size
     )
-    val skipScope = rememberCoroutineScope()
 
     Surface(
         modifier = modifier.fillMaxSize(),
@@ -77,6 +76,8 @@ fun OnBoardingScreen(
                 modifier = modifier.padding(start = 10.dp),
                 text = "Skip",
                 onClick = {
+                    navController.popBackStack()
+                    navController.navigate(Routes.WELCOME_SCREEN)
                 }
             )
 
