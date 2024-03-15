@@ -5,4 +5,5 @@ object Routes {
     const val ON_BOARDING_SCREEN = "ON_BOARDING_SCREEN"
     const val WELCOME_SCREEN = "WELCOME_SCREEN"
     const val LOGIN_SCREEN = "LOGIN_SCREEN"
+    const val REGISTRATION_SCREEN = "REGISTRATION_SCREEN"
 }
