@@ -95,6 +95,8 @@ fun WelcomeScreen(
                     modifier = modifier.fillMaxWidth(),
                     text = "LOGIN",
                     onClick = {
+                        navController.popBackStack()
+                        navController.navigate(Routes.LOGIN_SCREEN)
                     }
                 )
 
@@ -105,6 +107,7 @@ fun WelcomeScreen(
                         .border(2.dp, color = MaterialTheme.colorScheme.primary),
                     text = "CREATE ACCOUNT",
                     onClick = {
+                        navController.navigate(Routes.REGISTRATION_SCREEN)
                     }
                 )
             }
