@@ -137,6 +137,7 @@ fun RegistrationScreen(
                         popUpTo(0)
                     }
                 }
+
             )
 
             Spacer(modifier = Modifier.weight(0.35f))
