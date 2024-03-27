@@ -40,6 +40,8 @@ import com.example.uptodoapp.ui.navgraph.Routes
 @Composable
 fun LoginScreen(
     navController: NavHostController,
+    modifier: Modifier = Modifier,
+    onLoginClicked: () -> Unit
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -50,7 +52,7 @@ fun LoginScreen(
                 .fillMaxSize()
         ) {
 
-            Spacer(modifier = Modifier.weight(0.2f))
+            Spacer(modifier = modifier.weight(0.2f))
 
             TextButton(
                 onClick = {
@@ -120,9 +122,7 @@ fun LoginScreen(
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp),
                 text = "Login",
-                onClick = {
-                    //TODO: Navigate to Index(Home) Screen
-                }
+                onClick = onLoginClicked
             )
 
             Spacer(modifier = Modifier.weight(0.35f))
@@ -197,5 +197,5 @@ fun LoginScreen(
 @Preview
 @Composable
 fun LoginScreenPreview() {
-    LoginScreen(rememberNavController())
+    LoginScreen(rememberNavController(), onLoginClicked = {})
 }
