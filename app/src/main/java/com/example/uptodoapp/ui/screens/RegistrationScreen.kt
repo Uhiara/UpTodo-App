@@ -133,7 +133,9 @@ fun RegistrationScreen(
                     .padding(horizontal = 20.dp),
                 text = "Register",
                 onClick = {
-                    //TODO: Navigate to
+                    navController.navigate(Routes.LOGIN_SCREEN) {
+                        popUpTo(0)
+                    }
                 }
             )
 
